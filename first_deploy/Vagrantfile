@@ -78,10 +78,14 @@ Vagrant.configure("2") do |config|
   # Enable provisioning with a shell script. Additional provisioners such as
   # Ansible, Chef, Docker, Puppet and Salt are also available. Please see the
   # documentation for more information about their specific syntax and use.
-  # config.vm.provision "shell", inline: <<-SHELL
-  #   apt-get -yqq update
+  config.vm.provision "shell", inline: <<-SHELL
+    sudo apt-get -yqq update
+    sudo apt-get install systemd -y
+    sudo apt-get upgrade -y
+    sudo apt-get install apache2 -y
+    sudo apt-get install git -y
   #   apt-get -yqq install rsync
   #   apt-get update
   #   apt-get install -y apache2
-  # SHELL
+  SHELL
 end
